@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-db
+  namespace: nerdearla
+spec:
+  serviceName: postgres-db
+  selector:
+    matchLabels:
+      app: postgre-db
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: postgre-db
+    spec:
+      containers:
+        - name: postgres-db
+          image: postgres:latest
+          volumeMounts:
+            - name: postgres-db
+              mountPath: /data
+          env:
+            - name: POSTGRES_USER
+              value: games
+            - name: POSTGRES_PASSWORD
+              value: games
+            - name: PGDATA
+              value: /data/pgdata
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-db
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi

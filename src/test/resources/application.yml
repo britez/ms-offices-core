@@ -1,0 +1,10 @@
+spring:
+  application.name: ms-offers-core
+  main.allow-bean-definition-overriding: true
+  cloud:
+    config:
+      discovery:
+        enabled: false
+offers:
+  cache:
+    ttl: "1"

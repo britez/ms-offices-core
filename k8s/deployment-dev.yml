@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-pacman-core
+  namespace: nerdearla
+spec:
+  selector:
+    matchLabels:
+      app: ms-pacman-core
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-pacman-core
+    spec:
+      containers:
+        - name: ms-pacman-core
+          image: registry.dev.redbee.io/pacman-core:0.0.1
+          imagePullPolicy: Always
+          env:
+            - name: "SPRING_PROFILES_ACTIVE"
+              value: "aws"
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: 250m
+            limits:
+              memory: "1024Mi"
+              cpu: 500m
+          livenessProbe:
+            httpGet:
+              port: http
+              path: /actuator/health
+            initialDelaySeconds: 60
+            periodSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              port: http
+              path: /actuator/health
+            initialDelaySeconds: 60
+            periodSeconds: 5
+            failureThreshold: 3
+      imagePullSecrets:
+        - name: regcred

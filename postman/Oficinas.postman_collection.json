@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "c67ae942-b228-4b16-9306-947cff69b1b6",
+		"name": "Oficinas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Office",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Lavalle\",\n    \"address\": \"Lavalle 348\",\n    \"latitude\": 123123,\n    \"longitude\": 123123123\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/offices",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"offices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Schedule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"options\": [{\n        \"id\": 2,\n        \"availability\": 10\n    }],\n    \"day\": \"2022-11-03T00:00:00Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/schedules",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"schedules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mail\": \"maxi03.15@gmail.com\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/schedules/3/options/4/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"schedules",
+						"3",
+						"options",
+						"4",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mail\": \"maxi03.16@gmail.com\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/schedules/4/offices/1/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"schedules",
+						"4",
+						"offices",
+						"1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update schedule",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"day\": \"2022-12-05T00:00:00\",\n    \"state\": \"OPEN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/schedules/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"schedules",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Schedule",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/offices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"offices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Schedules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/schedules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"schedules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Office",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/offices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"offices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
