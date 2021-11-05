@@ -7,8 +7,9 @@ interface ScheduleOfficeRepository {
   fun findByOfficeIdAndScheduleIdAndScheduleState(id:Long, scheduleId:Long, state: ScheduleState): OfficeSchedule
   fun update(it: OfficeSchedule):OfficeSchedule
   fun create(it: OfficeSchedule):OfficeSchedule
+  fun findByOfficeIdAndScheduleId(officeId: Long, scheduleId: Long): OfficeSchedule
 
-  companion object {
+    companion object {
 
   }
 }

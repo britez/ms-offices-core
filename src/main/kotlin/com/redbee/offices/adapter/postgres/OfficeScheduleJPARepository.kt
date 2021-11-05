@@ -12,6 +12,11 @@ interface OfficeScheduleJPARepository:CrudRepository<OfficeSchedule, Long> {
         scheduleId:Long,
         scheduleState: ScheduleState
     ): Optional<OfficeSchedule>
+
+    fun findByOfficeIdAndSchedule_Id(
+        officeId: Long,
+        scheduleId: Long
+    ): Optional<OfficeSchedule>
 }
 
 

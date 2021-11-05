@@ -2,8 +2,8 @@ package com.redbee.offices.application.port.`in`
 
 import com.redbee.offices.domain.OfficeSchedule
 
-interface AddEmployeeCommand {
+interface GetScheduleOfficePortIn {
 
-    fun execute(scheduleId:Long, scheduleOfficeId:Long): OfficeSchedule
+    fun execute(scheduleId:Long, officeId:Long): OfficeSchedule
 
 }

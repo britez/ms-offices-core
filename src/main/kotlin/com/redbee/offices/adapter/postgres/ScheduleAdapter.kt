@@ -47,4 +47,11 @@ class ScheduleAdapter(
   override fun create(it: OfficeSchedule): OfficeSchedule =
     officeScheduleJPARepository.save(it)
 
+  override fun findByOfficeIdAndScheduleId(officeId: Long, scheduleId: Long): OfficeSchedule =
+    officeScheduleJPARepository
+      .findByOfficeIdAndSchedule_Id(officeId, scheduleId)
+      .orElseThrow { EntityNotFoundException(
+        SPError.RESOURCE_NOT_FOUND.errorCode,
+        MESSAGE_OFFICE_SCHEDULE.format(officeId, scheduleId)) }
+
 }

@@ -6,12 +6,6 @@ import javax.validation.constraints.NotBlank
 
 interface RemoveEmployeeCommand {
 
-    fun execute(scheduleId:Long, scheduleOfficeId:Long, command:Command): OfficeSchedule
-
-    data class Command(
-        @get:NotBlank
-        @get:Email(message = "the mail must be valid")
-        val mail:String
-    )
+    fun execute(scheduleId:Long, scheduleOfficeId:Long): OfficeSchedule
 
 }

@@ -2,9 +2,7 @@ package com.redbee.offices.domain
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonTypeInfo
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.CLASS,
@@ -17,7 +15,16 @@ data class Employee(
     @GeneratedValue
     @JsonProperty("id")
     val id:Long? = null,
-
     @JsonProperty("mail")
     val mail: String,
+    @JsonProperty("name")
+    val name: String,
+    @JsonProperty("givenName")
+    val givenName:String,
+    @JsonProperty("familyName")
+    val familyName:String,
+    @JsonProperty("picture")
+    val picture:String,
+    @ManyToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
+    val authorities:Set<Authority>,
 )

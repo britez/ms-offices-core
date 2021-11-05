@@ -6,5 +6,10 @@ data class DetailOfficeScheduleResponse(
   val availability: Long,
   val employees: List<EmployeeResponse>
 ) {
-  data class EmployeeResponse(val mail: String)
+  data class EmployeeResponse(
+    val mail: String,
+    val name: String,
+    val givenName: String,
+    val familyName: String,
+    val picture: String)
 }
